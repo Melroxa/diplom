@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block js %}
+<script>
+
+</script>
+<link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}"/>
+
+<link rel="stylesheet" type="text/css"
+      href="{% static 'slick/slick-theme.css' %}"/>
+
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="{% static 'js/slick_slide.js' %}"></script>
+
+<script type="text/javascript"
+        src="{% static 'js/category_filter.js' %}"></script>
+<script src="{% static 'js/slider_and_filter.js' %}"></script>
+
+{% endblock %}
+
+{% block content %}
+
+<main class="container">
+
+    <div class="banner">
+        <div class="text-banner">
+
+            <h1 class="banner__h1">Мармилен</h1>
+            <h2 class="banner__h2">Дом красоты</h2>
+
+            <button class="text-banner__button"><a
+                    href="https://dikidi.ru/#widget=151348">Записаться</a>
+            </button>
+
+        </div>
+        <div class="photo-banner">
+            <img src="{% static 'images/kandinsky-download-1709733588318.png' %}"
+                 alt="">
+        </div>
+        <hr class="hr-banner">
+    </div>
+    <h2>Наши цены</h2>
+    <section class="categories">
+        <div id="categories" class="desktop-view">
+
+            {% for category in categories %}
+            <a href="#" class="category-link"
+               data-category="{{ category.slug }}">{{ category.name }}</a>
+            {% endfor %}
+        </div>
+
+        <div class="custom-select" id="custom-select">
+            <div class="select-header">
+                <div id="selected-option">Услуги</div>
+                <div class="arrow">&#9660;</div>
+            </div>
+            <div class="options">
+
+                {% for category in categories %}
+                <div data-value="{{ category.slug }}">{{ category.name }}</div>
+
+                {% endfor %}
+            </div>
+        </div>
+
+
+        <div id="services">
+
+            {% for service in services %}
+            <div class="service" data-category="{{ service.category.slug }}">
+                <div class="flex-service">
+                    <h3>{{ service.title }}</h3>
+                    <h3 class="truncatedText"
+                        onclick="showFullText('{{ service.description }}', '{{ service.id }}')">
+                        {{ service.description|truncatechars:9 }}
+                    </h3>
+                    <div class="overlay" id="overlay_{{ service.id }}">
+                        <div class="modal" id="fullTextModal_{{ service.id }}">
+                            <span class="close"
+                                  onclick="closeModal('{{ service.id }}')">&times;</span>
+                            <p id="fullText_{{ service.id }}"></p>
+                        </div>
+                    </div>
+                    <div class="price_detail">
+                        <!--прайс-->
+                        {% if service.max_price %}
+                            <h4>{{ service.min_price|floatformat:"-0" }} <span class="rub">₽</span></h4>&nbsp;-&nbsp;<h4>{{ service.max_price|floatformat:"-0" }} <span class="rub">₽</span></h4>
+                            {% else %}
+                                <h4>{{ service.min_price|floatformat:"-0" }}<span
+                                                    class="rub">₽</span></h4></h4>
+                            {% endif %}
+                        </div>
+
+                                        </div>
+                                        <hr>
+                                    </div>
+
+                                    {% endfor %}
+
+
+                                </div>
+                            </section>
+                        <section class="master-section">
+                            <h2>Наши мастера</h2>
+                            <div class="image-masters">
+                                <div class="slider">
+                                    {% if categories_master %}
+                                        {% for category_master in categories_master %}
+                        <div class="masters-items">
+                            <a href="{% url 'category_master_detail' category_slug=category_master.slug %}">
+                                <div class="image-container">
+                                    <img src="{{ category_master.image.url }}" alt="" class="lookbook-image">
+                                    <div class="caption-overlay">
+                                        <h2 class="caption-text">{{ category_master.name }}</h2>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                                        {% endfor %}
+                                    {% else %}
+                                        <p>No data available</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </section>
+
+                            <section class="feedback-widget">
+                                <script src="https://res.smartwidgets.ru/app.js" defer></script>
+                                <div class="sw-app" data-app="e6fe60f1ba2ce244a5cf6338950cd0db"></div>
+                            </section>
+                        </main>
+
+
+                            <script>
+
+                        function showFullText(fullText, serviceId) {
+                            console.log('showFullText called');
+                            document.getElementById('fullText_' + serviceId).innerText = fullText;
+                            var overlay = document.getElementById('overlay_' + serviceId);
+                            overlay.style.display = 'block';
+                            setTimeout(function() {
+                                overlay.style.opacity = 1;
+                                document.getElementById('fullTextModal_' + serviceId).style.opacity = 1;
+                            }, 10);
+                        }
+
+                        function closeModal(serviceId) {
+                            console.log('closeModal called');
+                            var overlay = document.getElementById('overlay_' + serviceId);
+                            overlay.style.opacity = 0;
+                            document.getElementById('fullTextModal_' + serviceId).style.opacity = 0;
+                            setTimeout(function() {
+                                overlay.style.display = 'none';
+                            }, 300);
+                        }
+                            </script>
+
+
+                        {% endblock %}

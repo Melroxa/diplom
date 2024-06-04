@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}
+Информация о нас
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/gsap.min.js' %}" defer></script>
+<script src="{% static 'js/ScrollTrigger.min.js' %}" defer></script>
+<script src="{% static 'js/ScrollSmoother.min.js' %}" defer></script>
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+<script src="{% static 'js/about.js' %}" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald&family=Wix+Madefor+Text&display=swap"
+      rel="stylesheet"> {# ОСнованя часть первой стр #}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="wrapper">
+    <div class="content">
+        <header class="hero-section">
+            <img data-speed=".8" class="hero"
+                 src="{% static '/images/britva.png' %}" alt="">
+            <div class="container">
+                <div data-speed=".55" class="main-header">
+                    <h1 class="main-title">Добро пожаловать <br>в Мармилен!</h1>
+                </div>
+            </div>
+        </header>
+
+        <div class="portfolio">
+            <div class="container">
+                <main class="gallery">
+                    <div data-speed=".9" class="gallery__left">
+
+                        <div class="text__block gallery__item">
+                            <h2 class="text-blok__h">Наша История:</h2>
+                            <p class="text-block__p">Мы начали свой путь в мире
+                                красоты в 2015 году. С тех пор мы стремимся не
+                                просто предоставлять услуги красоты, но и
+                                создавать уникальный опыт для каждого нашего
+                                клиента.</p>
+                            <img class="gallery__item"
+                                 src="{% static 'main/img/kandinsky-download-1697516786460.png' %}"
+                                 alt=" ">
+
+                            <h2 class="text-blok__h">Миссия и Ценности:</h2>
+                            <p class="text-block__p">В Мармилен мы верим, что
+                                качественное обслуживание – это основа
+                                долгосрочных отношений с нашими клиентами. Наша
+                                миссия – предоставить надежные и инновационные
+                                услуги в индустрии красоты, поддерживая ваши
+                                потребности и превосходя ожидания.</p>
+                            <img class="gallery__item"
+                                 src="{% static 'main/img/kandinsky-download-1697469169255.png' %}"
+                                 alt=" ">
+
+                            <h2 class="text-blok__h">Наши Обязательства</h2>
+                            <p class="text-block__p">Мы уверены в качестве нашей
+                                работы, поэтому обещаем, что каждая услуга будет
+                                выполнена на высшем уровне. Ваша безопасность и
+                                удовлетворение – наш главный приоритет.</p>
+                            <img class="gallery__item"
+                                 src="{% static 'main/img/kandinsky-download-1697469046610.png' %}"
+                                 alt=" ">
+                        </div>
+                    </div>
+                    <div data-speed="1.1" class="gallery__right">
+                        <div class="text__block gallery__item">
+
+
+                            <h2 class="text-blok__h">Наша Команда:</h2>
+                            <p class="text-block__p">Наш коллектив – это группа
+                                профессионалов, преданных своему делу. Каждый
+                                член нашей команды обладает обширным опытом и
+                                страстью к своей работе. Мы гордимся тем, что
+                                создали семью, в которой каждый член является
+                                ключевым звеном нашего успеха.</p>
+                            <img class="gallery__item"
+                                 src="{% static 'main/img/kandinsky-download-1697517379541.png' %}"
+                                 alt="">
+
+                            <h2 class="text-blok__h">Технологии и
+                                Оборудование:</h2>
+                            <p class="text-block__p">Мармилен оснащен передовым
+                                оборудованием и технологиями, чтобы предоставить
+                                вам качественные услуги. Мы следим за последними
+                                тенденциями в индустрии красоты, чтобы вы всегда
+                                были на передовой стиля и ухоженности.</p>
+                            <img class="gallery__item"
+                                 src="{% static 'main/img/kandinsky-download-1697469343575.png' %}"
+                                 alt="">
+
+
+                            <h2 class="text-blok__h">Экологическая и
+                                Социальная Ответственность:</h2>
+                            <p class="text-block__p">В Мармилен мы не только
+                                заботимся о вашей красоте, но и об окружающей
+                                среде. Мы активно внедряем экологически чистые
+                                методы работы и используем натуральную
+                                косметику, которая безопасна как для вас, так и
+                                для планеты. Мы тщательно отбираем продукты,
+                                которые не содержат вредных химикатов и
+                                тестируются исключительно на этичность и
+                                экологичность. </p>
+                            <p class="text-block__p">Мы благодарим вас за
+                                доверие, выбирая Мармилен. С нами вы получите не
+                                просто услуги по уходу за собой, а настоящего
+                                партнера, готового поддержать вас на пути к
+                                красоте и гармонии. Спасибо, что делаете нас
+                                частью вашей истории красоты!</p>
+                            <img class="gallery__item"
+                                 src="{% static 'main/img/kandinsky-download-1697518297713.png' %}"
+                                 alt="">
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

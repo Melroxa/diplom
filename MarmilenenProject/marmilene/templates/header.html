@@ -1,0 +1,49 @@
+{% load static %}
+
+
+<link rel="stylesheet" href="{% static 'src/header.css' %}">
+<script src="{% static 'js/header.js' %}"></script>
+<script type="text/javascript"
+        src="https://dikidi.ru/assets/js/widget_record/widget2.min.js"></script>
+
+<header class="header">
+    <div class="container">
+        <div class="header__body" id="burger">
+            <a href="{% url 'home' %}" class="header__logo">
+                <img src="{% static 'images/logo.svg' %}"
+                     alt="logo">
+            </a>
+            <div class="header__burger">
+                <span></span>
+            </div>
+            <nav class="header__menu">
+
+                <ul class="header__list">
+                    <hr>
+                    <div class="contact-info">
+                        <p class="header__link">+7 (900) 056-95-90</p>
+                        <a href="https://yandex.ru/maps/org/marmilen/37540773515/?ll=86.147167%2C55.353657&z=20"
+                           class="header__link">Московский пр., 11,
+                            Кемерово</a>
+                    </div>
+                    <hr>
+                    <li>
+                        <a href="{% url 'home' %}"
+                           class="header__link">Главная</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'about' %}" class="header__link">О нас</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contacts' %}" class="header__link">Контакты</a>
+                    </li>
+                    <li>
+                        <a class="header__link"
+                           href="https://dikidi.ru/#widget=151348">Записаться</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+

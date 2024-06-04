@@ -1,0 +1,44 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block js %}
+
+<link rel="stylesheet" href="{% static 'css/details_master.css' %}">
+{% endblock %}
+
+{% block title %}Мастер: {{ category_instance.name }}{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="masters_container">
+        {% for master in masters %}
+            <div class="lookbook-item">
+
+                <img src="{{ category_instance.image.url }}" alt=""
+                     class="master-image">
+                <div class="image-caption">
+                    <h1>{{ master.title }}</h1>
+                    <h2>Стаж работы: {{ master.experience }} лет.</h2>
+                    <h3>{{ master.description }}</h3>
+
+                    <!-- Перебор всех изображений мастера -->
+
+
+                    </div>
+                </div>
+           <h2> Галерея работ</h2>
+       <div class="image-gallery">
+
+           {% for image in master.images.all %}
+                            <img src="{{ image.image.url }}" alt="" class="gallery-image">
+                        {% endfor %}
+            </div>
+    </div>
+
+        {% endfor %}
+</div>
+
+
+
+{% endblock %}

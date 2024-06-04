@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="{% static 'images/logo_title.ico' %}"
+          type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+
+
+    <link rel="stylesheet" href="/static/src/base.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="{% static 'js/base.js' %}" ></script>
+    {% block js %} {% endblock %}
+        <title>{% block title %}{{title}}{% endblock %}</title>
+</head>
+<script src="{% static 'slick/slick.min.js' %} "></script>
+<body>
+
+{% if not exclude_header %}
+{% include 'header.html' %}
+{% endif %}
+
+{% block content %}{% endblock %}
+
+{% if not exclude_footer %}
+{% include 'footer.html' %}
+{% endif %}
+
+<script src="https://kit.fontawesome.com/0536120956.js"
+        crossorigin="anonymous"></script>
+</body>
+</html>

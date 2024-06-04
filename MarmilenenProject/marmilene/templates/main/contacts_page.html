@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block js %}
+<link rel="stylesheet" href="{% static 'css/contacts_page.css' %}">
+<script src="https://api-maps.yandex.ru/2.0/?load=package.standard&amp;lang=ru-RU&amp;apikey=6e4a5443-6784-4936-acb3-1ba10107cd3b"
+        type="text/javascript"></script>
+<script type="text/javascript" src="{% static 'js/contact'}"></script>
+<script src="js/mapbasics.js"></script>
+
+{% endblock %}
+
+{% block content %}
+
+<main class="container">
+    <section class="contacts-page">
+        <div class="left-map__contacts">
+            <div id="My-map" class="contacts-map"> </div>
+        </div>
+        <div class="text-right__contacts">
+            <div class="contacts_number__logo">
+                <img src="" alt="" class="contacts-images">
+                <h1>Мармилен</h1>
+                <h2>Телефон: <span>+7 (900) 056-95-90</span></h2>
+                <h3>Время работы: <span>10:00 - 20:00</span></h3>
+                <a class="btn-primary" href="https://dikidi.ru/#widget=151348">Записаться</a>
+            </div>
+        </div>
+        </section>
+</main>
+
+
+
+{% endblock %}

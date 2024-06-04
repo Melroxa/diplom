@@ -1,0 +1,67 @@
+{% load static %}
+
+{% block js %}
+<link rel="stylesheet" href="{% static 'src/footer.css' %}">
+<script src="https://api-maps.yandex.ru/2.0/?load=package.standard&amp;lang=ru-RU&amp;apikey=6e4a5443-6784-4936-acb3-1ba10107cd3b"
+        type="text/javascript"></script>
+<script src='js/mapbasics.js' type="text/javascript"></script>
+<script src="{% static 'js/footer.js' %}"></script>
+
+
+{% endblock %}
+
+<footer>
+    <section class="card-pointer">
+        <div id="My-map" class="map">
+        </div>
+    </section>
+
+
+    <div class="footer">
+        <div class="container">
+            <div class="footer-body">
+                <div class="footer-parent">
+                    <div class="footer-column">
+                        <nav class="footer__menu">
+
+                            <ul class="footer__list">
+                                <li>
+                                    <a href="{% url 'home' %}"
+                                       class="footer__link">Главная</a>
+                                </li>
+                                <li>
+                                    <a href="" class="footer__link">О нас</a>
+                                </li>
+                                <li>
+                                    <a href="" class="footer__link">Контакты</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="footer-column">
+                        <a href="{% url 'home' %}" class="footer__logo">
+                            <img src="{% static 'images/logo.svg' %}"
+                                 alt="logo">
+                        </a>
+                        <h3>Часы работы: 10:00-20:00</h3>
+                        <hr>
+                        <a href="https://yandex.ru/maps/org/marmilen/37540773515/?ll=86.147167%2C55.353657&z=20"
+                           class="footer__link">Московский просп., 11,
+                            Кемерово</a>
+                    </div>
+                    <div class="footer-column">
+                        <nav class="footer__menu">
+                            <ul class="footer__list">
+                                <li>
+                                    <a href="" class="footer__link">Сайт
+                                        разработал</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
